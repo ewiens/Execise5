@@ -12,13 +12,14 @@ public class Assign2a {
 		Scanner input = new Scanner(System.in);
 	
 		//JFrame
+		/*
 				JFrame myJFrame =new JFrame();
 				myJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				myJFrame.setSize(250, 250);
 				myJFrame.setLocation(500,250);
 				myJFrame.setVisible(true);
 				//myJFrame.setLabel("Quadratic Formula");
-				
+		*/		
 				try{Thread.sleep(0750);}//Puts in a pause 
 				catch(Exception e){};
 				
@@ -35,9 +36,9 @@ public class Assign2a {
 	    		  JOptionPane.showInputDialog("Enter c");
 		
 		// Turns the strings into integers
-		int a=Integer.parseInt(a1);
-		int b=Integer.parseInt(b1);
-		int c=Integer.parseInt(c1);	
+		double a=Double.parseDouble(a1);
+		double b=Double.parseDouble(b1);
+		double c=Double.parseDouble(c1);	
 		
 		//Uses the integers for math with decimals
 		double sum =(Math.pow(b,2) - 4*a*c); 
@@ -56,7 +57,8 @@ public class Assign2a {
 		if(sum > 0)
 			JOptionPane.showMessageDialog(null, "x= "+ sum2 + " or " + sum1, "Quadratic Formula Solution",JOptionPane.PLAIN_MESSAGE);
 		
-		JOptionPane.showMessageDialog(null,"Thank you for using the Quadratic Formula!","Quadratic Formula",JOptionPane.PLAIN_MESSAGE);
+		// Shows the final message
+		JOptionPane.showMessageDialog(null,"Thank you for using the Quadratic Formula!");
 	}
 
 }
