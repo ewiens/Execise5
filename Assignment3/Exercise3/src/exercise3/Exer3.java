@@ -21,14 +21,14 @@ public class Exer3 {
 		JOptionPane.showMessageDialog(null, message);
 		JOptionPane.showMessageDialog(null, "There are 10 math problems. Good Luck!");
 		
-		//And now the questions
-		int x=0;
+		//integers needed for the do...while loop
+		int x;
 		int g=1;
 		
 		
 		do{
-		//Quiz
-			
+		//Quiz, string question, then integer answer, then if else for correctness.
+			x=0;
 			String q1=
 					JOptionPane.showInputDialog(null,"What is the square root of 64?","Question 1",JOptionPane.PLAIN_MESSAGE);
 			int q1a =Integer.parseInt(q1);	
@@ -132,27 +132,35 @@ public class Exer3 {
 			
 			//number correct
 			JOptionPane.showMessageDialog(null,"You got "+ x + " correct!");
-		/*
-		// makes a break between the number and the letter grade
-		try{Thread.sleep(1000);} 
-		catch(Exception e){};
-		*/		
-		//Tells what letter grade you got
-		if (x>=9){  
+		
+			
+		// Switch case to tell grade
+		switch (x)
+		{
+			case 9:
+			case 10:
 				JOptionPane.showMessageDialog(null,"You got an A!");
-			}
-			else if(x>=8){
+				break;
+				
+			case 8:
 				JOptionPane.showMessageDialog(null,"You got a B!");
-			}
-				else if(x>=7){
-					JOptionPane.showMessageDialog(null,"You got a C.");
-			}
-				else if(x>=6){
-					JOptionPane.showMessageDialog(null,"You got a D.");
-			}
-				else {
-					JOptionPane.showMessageDialog(null,"You Failed.");
-			}
+				break;
+				
+			case 7:
+				JOptionPane.showMessageDialog(null,"You got a C.");
+				break;
+				
+			case 6:
+				JOptionPane.showMessageDialog(null,"You got a D.");
+				break;
+				
+			default: 
+				JOptionPane.showMessageDialog(null,"You have failed.");
+				break;
+				
+		}	
+			
+		// variable g modification to stay or leave
 		String g1=
 				JOptionPane.showInputDialog(null,"Would you like to play again? If so input 1, if not input any other integer.");
 		int grade=Integer.parseInt(g1);
@@ -163,6 +171,8 @@ public class Exer3 {
 		} while (g==1);
 		//Switch case
 		
+		String message2 = String.format("Thank you for taking the Quiz, %s %s!", title, name);	
+		JOptionPane.showMessageDialog(null, message2);
 				
 		//Creates a panel for the Graphic		
 		GraphicE3 panel =new GraphicE3();
