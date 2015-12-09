@@ -9,29 +9,49 @@ import javax.swing.*;
 
 public class DiagonAlley {
 	
-protected static JFrame Welcome;
-protected static JLabel WelcomeLabel;
-protected static ImageIcon DAIcon;
-protected static JLabel DAImage;
-protected static Container WContainer;
+protected JFrame Welcome;
+protected JLabel WelcomeLabel;
+protected ImageIcon DAIcon;
+protected JLabel DAImage;
+protected Container WContainer;
 
-protected static JFrame Stores;
-protected static JLabel StoresLabel;
-protected static Container SContainer;
-protected static JPanel StoresControl;
-//protected static ImageIcon OlivIcon;
-//protected static ImageIcon MMIcon;
-//protected static ImageIcon EeyIcon;
+protected JFrame Stores;
+protected JLabel StoresLabel;
+protected Container SContainer;
+protected JPanel StoresControl;
 
-	public static void main(String[] args) {
+public int w=0;
+public int r=0;
+public int b=0;
+public int o=0;
+
+public String wood;
+public String core;
+public String flex;
+public double Length;
+
+	public void main() {
 		// TODO Auto-generated method stub
 			
 		IntroStatements();
 		Stores();
+		//RunOliv();
 		
 	}
 	
-	protected static void IntroStatements() {
+	protected void RunOliv(){
+	
+		Olivanders myWand = new Olivanders();
+		myWand.OMerch(w);
+//		Olivanders.setWood();
+//		Olivanders.setCore();
+//		Olivanders.setFlexibility();
+//		Olivanders.setLength(Length);
+		
+		System.out.println("Your wand is "+Length+" inches, "+wood+" and "+core+", "+flex);
+	}
+	
+	protected void IntroStatements() {
 		
 		JFrame Welcome = new JFrame();
 		Welcome.setLayout(new GridLayout(2,1));
@@ -62,7 +82,7 @@ protected static JPanel StoresControl;
 		return;
 		
 	}
-	protected static void Stores(){
+	protected void Stores(){
 		
 		JFrame Stores = new JFrame("Where to?");
 		Stores.setLayout(new GridLayout(2,1));
@@ -71,17 +91,26 @@ protected static JPanel StoresControl;
 		SContainer.setBackground(Color.WHITE);
 		
 		JLabel StoresLabel = new JLabel("<html><font color = 'Green'> Where should we start?", JLabel.CENTER);
+		StoresLabel.setFont(new Font(null, Font.PLAIN,20));
 		
 		JButton Wand = new JButton("<html><font color = 'green'> 1 Wand");
-		JButton Robes = new JButton("<html><font color = 'green'> 3 Sets of Black Robes");
-		JButton pot = new JButton("<html><font color = 'green'>1 Standard Size 2 Black Pewter Cauldron ");
-		JButton owl = new JButton("<html><font color = 'green'> Optional: Cat, Owl, or Toad");		
+		JButton Robes = new JButton("<html><font color = 'green'> Uniform");
+		JButton Books = new JButton("<html><font color = 'green'> Books");
+		JButton Owl = new JButton("<html><font color = 'green'> Optional: Owl");		
+		
+		Wand.setFont(new Font(null, Font.PLAIN,20));
+		Robes.setFont(new Font(null, Font.PLAIN,20));
+		Books.setFont(new Font(null, Font.PLAIN,20));
+		Owl.setFont(new Font(null, Font.PLAIN,20));
 		
 		Wand.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Wand.setVisible(false);
-				//Shop.ShopWand();
+				Olivanders myWand = new Olivanders();
+				myWand.OMerch(w);
+//				myWand.OMerch();
 				System.out.println("Going to Olivanders");
+				w++;
 				return;
 			}
 		});
@@ -91,35 +120,56 @@ protected static JPanel StoresControl;
 				Robes.setVisible(false);
 				//Shop.ShopRobes();
 				System.out.println("Going to Madame Malkins");
+				r++;
 				return;
 			}
 		});
 		
-		pot.addActionListener(new ActionListener(){
+		Books.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				pot.setVisible(false);
+				Books.setVisible(false);
 				//Shop.ShopPot();
-				System.out.println("Going to the pot shop");
+				System.out.println("Going to Florence and Blotts");
+				b++;
 				return;
 			}
 		});
 		
-		owl.addActionListener(new ActionListener(){
+		Owl.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				owl.setVisible(false);
-				//Shop.ShopOwl();
+				Owl.setVisible(false);
+				Eyelops myEeylops = new Eyelops();
+				myEeylops.EMerch(o);
 				System.out.println("Going to Eeylops");
+				o++;
 				return;
 			}
 		});
 		
 		JPanel StoresControl = new JPanel();
 		StoresControl.setLayout(new GridLayout(4,1));
-		StoresControl.add(Wand);
+		
+//		if(w=0){
+//		StoresControl.add(Wand);
+//		}
+//		if(r=0){
+//		StoresControl.add(Robes);
+//		}
+//		if(b=0){
+//		StoresControl.add(Books);
+//		}
+//		if(o=0){
+//		StoresControl.add(Owl);
+//		}
+		
+		
 		StoresControl.add(Robes);
-		StoresControl.add(pot);
-		StoresControl.add(owl);
-				
+		StoresControl.add(Books);	
+		StoresControl.add(Wand);
+		StoresControl.add(Owl);
+		
+		//System.out.print(r);
+		
 		Stores.add(StoresLabel);
 		Stores.add(StoresControl);
 		
