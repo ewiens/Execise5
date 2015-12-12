@@ -12,16 +12,17 @@ protected Container	HContainer;
 protected Container HouseContainer;
 protected String House;
 protected String [] H = new String [3];
+protected int house;
 	protected void Welcome(){
 		
 		JFrame HogFrame = new JFrame("Hogwarts");
 		HogFrame.setSize(800, 700);
 		HogFrame.setLocationRelativeTo(null);
-		HogFrame.setLayout(new GridLayout(3,1));
+		HogFrame.setLayout(new FlowLayout());
 		HContainer = HogFrame.getContentPane();
 		HContainer.setBackground(Color.white);
 		
-		ImageIcon HIcon = new ImageIcon("HogwartsCrest.png");
+		ImageIcon HIcon = new ImageIcon("GreatHall.png");
 		JLabel ShowCrest = new JLabel(HIcon);
 		
 		JLabel WelcomeLabel = new JLabel("<html><font color = 'green' > Welcome to Hogwarts",JLabel.CENTER);
@@ -29,7 +30,7 @@ protected String [] H = new String [3];
 		JPanel WelcomePanel = new JPanel();
 		
 		JButton Sort= new JButton("<html><font color = 'green' > Get Sorted");
-		
+		Sort.setFont(new Font(null,Font.PLAIN,20));
 		WelcomePanel.add(Sort);
 		
 		HogFrame.add(ShowCrest);
@@ -50,6 +51,7 @@ protected String [] H = new String [3];
 		
 		return;
 	}
+
 	protected void MyHouse(){
 		JFrame HouseFrame = new JFrame();
 		HouseFrame.setSize(800, 700);
@@ -59,29 +61,31 @@ protected String [] H = new String [3];
 		HouseContainer.setBackground(Color.white);
 		
 		getHouse();
-		House = setHouse();
+		house = setHouse();
+		
+//		house=3;
 		
 		String myCrest="";
 		String myLabel="";
-		switch(House)
+		switch(house)
 		{
-			case "Gryffindor":
+			case 1:
 				myCrest="GryffindorCrest.jpg";
-				myLabel="Congratulations you are a Gryffindor! Known for bravery and courage, Gryffindor has had the entire Weasly family and Harry Potter himself!"
+				myLabel="Welcome to Gryffindor! Known for bravery and courage, Gryffindor has had the entire Weasly family and Harry Potter himself!"
 						+ " Gryffindor was founded by Godric Gryffindor when Hogwarts was created!";
-			
-			case "Ravenclaw":
+			break;
+			case 2:
 				myCrest="RavenclawCrest.jpg";
 				myLabel="Welcome to Ravenclaw! Students in Ravenclaw are known to be clever, in fact they have to answer a riddle to enter their common room!"
 						+ " Ravenclaw was founded by Rowena Ravenclaw when Hogwarts was created.";
-			
-			case "Hufflepuff":
+			break;
+			case 3:
 				myCrest="HufflepuffCrest.jpg";
-				myLabel="Welcome to Hufflepuff! Hufflepuffs is where everyone else goes, but never fear Cedric Diggory was a Hufflepuff!"
+				myLabel="Welcome to Hufflepuff! Hufflepuff is where everyone else goes, but never fear Cedric Diggory was a Hufflepuff!"
 						+ " This house was founded by Helga Hufflepuff when Hogwarts was created.";
-			
-			case "Slytherin":
-				myCrest="SlytherinCrest.png";
+			break;
+			case 0:
+				myCrest="SlytherinCrest.jpg";
 				myLabel="Welcome to Slytherin! They say that there wasn't a witch or wizard in Slytherin that didn't go bad, but most Slytherins become powerful witches and wizards! "
 						+ "Slytherin was founded by Salazar Slytherin who believed only pure bloods should be allowed magical education.";
 				
@@ -99,24 +103,28 @@ protected String [] H = new String [3];
 		HouseFrame.add(HouseLabel);
 		HouseFrame.setVisible(true);
 		
+		return;
 	}
 	
-	protected String getHouse(){
+	protected int getHouse(){
 		SecureRandom myRandom = new SecureRandom();
-		int house = myRandom.nextInt(4);
+		house = myRandom.nextInt(4);
 		System.out.println(house);
-		H[1]="Gryffindor";
-		H[2]="Ravenclaw";
-		H[3]="Hufflepuff";
-		H[4]="Slytherin";
 		
-		House = H[house];
+//		H[1]="Gryffindor";
+//		H[2]="Ravenclaw";
+//		H[3]="Hufflepuff";
+//		H[0]="Slytherin";
+		
+		//House = H[house];
 		System.out.println(House);
-		return House;
+		return house;
 	}
 
-	protected String setHouse(){
-		return House;
+	protected int setHouse(){
+		return house;
 		
 	}
+	
+	
 }

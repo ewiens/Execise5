@@ -19,13 +19,14 @@ protected Container WContainer;
 	protected int OMerch(int w){
 		
 		JFrame Shopping = new JFrame("Ollivander's");
-		Shopping.setLayout(new GridLayout(2,1));
+		Shopping.setLayout(new FlowLayout());
 		Shopping.setSize(800, 700);
+		Shopping.setLocationRelativeTo(null);
 		Shopping.setVisible(true);
 		SContainer= Shopping.getContentPane();
 		SContainer.setBackground(Color.WHITE);
 		
-		ImageIcon OIcon= new ImageIcon("Ollivanders.jpg");
+		ImageIcon OIcon= new ImageIcon("OllivandersBig.jpg");
 		JLabel OLabel = new JLabel(OIcon);
 		
 		JButton WandButton= new JButton("<html><font color = green> Get your Wand!");
@@ -56,7 +57,7 @@ protected Container WContainer;
 		JFrame WandFrame = new JFrame("Ollivander's");
 		WandFrame.setSize(800, 700);
 		WandFrame.setLocationRelativeTo(null);
-		WandFrame.setLayout(new GridLayout(2,1));
+		WandFrame.setLayout(new FlowLayout());
 		WContainer = WandFrame.getContentPane();
 		WContainer.setBackground(Color.WHITE);
 		
@@ -66,7 +67,7 @@ protected Container WContainer;
 		setWand();
 		String MyWand = getWand();
 		System.out.println(MyWand);
-		JLabel WandLabel = new JLabel("<html><font color = 'green'>"+MyWand);
+		JLabel WandLabel = new JLabel("<html><font color = 'green'>"+MyWand,JLabel.CENTER);
 		WandLabel.setFont(new Font(null, Font.PLAIN,20));
 		
 		

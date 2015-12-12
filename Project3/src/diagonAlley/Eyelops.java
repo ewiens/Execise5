@@ -12,8 +12,9 @@ public class Eyelops extends Shop{
 	protected int EMerch(int o){
 	
 		JFrame Shopping = new JFrame();
-		Shopping.setLayout(new GridLayout(2,1));
+		Shopping.setLayout(new FlowLayout());
 		Shopping.setSize(800, 700);
+		Shopping.setLocationRelativeTo(null);
 		SContainer= Shopping.getContentPane();
 		SContainer.setBackground(Color.WHITE);
 		
@@ -26,8 +27,8 @@ public class Eyelops extends Shop{
 		JLabel ELabel = new JLabel("<html><font color = 'green'> Welcome to Eeylops Owl Emporium! What would you like?",JLabel.CENTER);
 		ELabel.setFont(new Font(null, Font.PLAIN,20));
 		
-		top.add(EImage);
-		top.add(ELabel);
+//		top.add(EImage);
+//		top.add(ELabel);
 		
 		JPanel EControl = new JPanel();
 		
@@ -43,7 +44,9 @@ public class Eyelops extends Shop{
 		EControl.add(Great);
 		EControl.add(Barn);
 		
-		Shopping.add(top);
+		//Shopping.add(top);
+		Shopping.add(EImage);
+		Shopping.add(ELabel);
 		Shopping.add(EControl);
 		
 		Shopping.setVisible(true);
@@ -58,6 +61,7 @@ public class Eyelops extends Shop{
 		
 		Barn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				Shopping.dispose();
 				BarnOwl();
 				return;
 			}
@@ -65,6 +69,7 @@ public class Eyelops extends Shop{
 		
 		Great.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				Shopping.dispose();
 				GreatOwl();
 				return;
 			}
@@ -80,7 +85,7 @@ public class Eyelops extends Shop{
 		JFrame OwlFrame = new JFrame("Your Owl");
 		OwlFrame.setSize(800,700);
 		OwlFrame.setLocationRelativeTo(null);
-		OwlFrame.setLayout(new GridLayout(2,1));
+		OwlFrame.setLayout(new FlowLayout());
 		
 		OwlFrame.setVisible(true);
 		
@@ -109,7 +114,7 @@ public class Eyelops extends Shop{
 		JFrame OwlFrame = new JFrame("Your Owl");
 		OwlFrame.setSize(800,700);
 		OwlFrame.setLocationRelativeTo(null);
-		OwlFrame.setLayout(new GridLayout(2,1));
+		OwlFrame.setLayout(new FlowLayout());
 		
 		OwlFrame.setVisible(true);
 		
@@ -138,7 +143,7 @@ public class Eyelops extends Shop{
 		JFrame OwlFrame = new JFrame("Your Owl");
 		OwlFrame.setSize(800,700);
 		OwlFrame.setLocationRelativeTo(null);
-//		OwlFrame.setLayout(new GridLayout(2,1));
+		OwlFrame.setLayout(new FlowLayout());
 		
 		OwlFrame.setVisible(true);
 		

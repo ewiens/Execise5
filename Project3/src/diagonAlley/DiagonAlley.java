@@ -73,7 +73,7 @@ public double Length;
 		
 		Welcome.setVisible(true);
 		
-		try{Thread.sleep(1000);}
+		try{Thread.sleep(3000);}
 		catch(Exception e){};
 		
 		Welcome.dispose();
@@ -144,6 +144,8 @@ public double Length;
 		});
 		
 		JPanel StoresControl = new JPanel();
+		Stores.setSize(800, 700);
+		Stores.setLocationRelativeTo(null);
 		StoresControl.setLayout(new GridLayout(3,1));
 			
 		StoresControl.add(Wand);
@@ -157,8 +159,6 @@ public double Length;
 		Stores.add(StoresLabel);
 		Stores.add(StoresControl);
 		
-		Stores.setSize(800, 700);
-		Stores.setLocationRelativeTo(null);
 		Stores.setVisible(true);
 		
 				
