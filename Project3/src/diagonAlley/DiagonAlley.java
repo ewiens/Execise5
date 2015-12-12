@@ -21,8 +21,6 @@ protected Container SContainer;
 protected JPanel StoresControl;
 
 public int w=0;
-public int r=0;
-public int b=0;
 public int o=0;
 
 public String wood;
@@ -90,17 +88,17 @@ public double Length;
 		SContainer = Stores.getContentPane();
 		SContainer.setBackground(Color.WHITE);
 		
-		JLabel StoresLabel = new JLabel("<html><font color = 'Green'> Where should we start?", JLabel.CENTER);
+		JLabel StoresLabel = new JLabel("<html><font color = 'Green'> Where should we go?", JLabel.CENTER);
 		StoresLabel.setFont(new Font(null, Font.PLAIN,20));
 		
-		JButton Wand = new JButton("<html><font color = 'green'> 1 Wand");
-		JButton Robes = new JButton("<html><font color = 'green'> Uniform");
-		JButton Books = new JButton("<html><font color = 'green'> Books");
-		JButton Owl = new JButton("<html><font color = 'green'> Optional: Owl");		
+		JButton Wand = new JButton("<html><font color = 'green'> Ollivanders");
+		JButton Go = new JButton("<html><font color = 'green'> Board the Hogwarts Express");
+//		JButton Books = new JButton("<html><font color = 'green'> Books");
+		JButton Owl = new JButton("<html><font color = 'green'> Eeylops Owl Emporium");		
 		
 		Wand.setFont(new Font(null, Font.PLAIN,20));
-		Robes.setFont(new Font(null, Font.PLAIN,20));
-		Books.setFont(new Font(null, Font.PLAIN,20));
+		Go.setFont(new Font(null, Font.PLAIN,20));
+//		Books.setFont(new Font(null, Font.PLAIN,20));
 		Owl.setFont(new Font(null, Font.PLAIN,20));
 		
 		Wand.addActionListener(new ActionListener(){
@@ -108,66 +106,52 @@ public double Length;
 				Wand.setVisible(false);
 				Olivanders myWand = new Olivanders();
 				myWand.OMerch(w);
-//				myWand.OMerch();
-				System.out.println("Going to Olivanders");
+				//System.out.println("Going to Ollivanders");
 				w++;
 				return;
 			}
 		});
 		
-		Robes.addActionListener(new ActionListener(){
+		Go.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				Robes.setVisible(false);
-				//Shop.ShopRobes();
-				System.out.println("Going to Madame Malkins");
-				r++;
+				Stores.setVisible(false);
+				Hogwarts myHogwarts = new Hogwarts();
+				myHogwarts.Welcome();
+				//System.out.println("Going to Madame Malkins");
 				return;
 			}
 		});
 		
-		Books.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				Books.setVisible(false);
-				//Shop.ShopPot();
-				System.out.println("Going to Florence and Blotts");
-				b++;
-				return;
-			}
-		});
+//		Books.addActionListener(new ActionListener(){
+//			public void actionPerformed(ActionEvent e){
+//				Books.setVisible(false);
+//				//Shop.ShopPot();
+//				System.out.println("Going to Florence and Blotts");
+//				b++;
+//				return;
+//			}
+//		});
 		
 		Owl.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Owl.setVisible(false);
 				Eyelops myEeylops = new Eyelops();
 				myEeylops.EMerch(o);
-				System.out.println("Going to Eeylops");
+				//System.out.println("Going to Eeylops");
 				o++;
 				return;
 			}
 		});
 		
 		JPanel StoresControl = new JPanel();
-		StoresControl.setLayout(new GridLayout(4,1));
-		
-//		if(w=0){
-//		StoresControl.add(Wand);
-//		}
-//		if(r=0){
-//		StoresControl.add(Robes);
-//		}
-//		if(b=0){
-//		StoresControl.add(Books);
-//		}
-//		if(o=0){
-//		StoresControl.add(Owl);
-//		}
-		
-		
-		StoresControl.add(Robes);
-		StoresControl.add(Books);	
+		StoresControl.setLayout(new GridLayout(3,1));
+			
 		StoresControl.add(Wand);
 		StoresControl.add(Owl);
-		
+//		if(o=1){
+//			if(w=1){
+		StoresControl.add(Go);
+//		}}
 		//System.out.print(r);
 		
 		Stores.add(StoresLabel);
